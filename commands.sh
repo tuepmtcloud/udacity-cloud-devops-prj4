@@ -38,7 +38,7 @@ kubectl apply -f postgresql-deployment.yaml
 # Get pods
 kubectl get pods
 # Exec to a specific pod
-kubectl exec -it postgresql-77d75d45d5-vpgcj -- bash
+kubectl exec -it postgresql-77d75d45d5-kn79t -- bash
 # Inside the pod, connect to posgres
 psql -U myuser -d mydatabase
 # List databases
@@ -49,3 +49,6 @@ kubectl apply -f postgresql-service.yaml
 kubectl get svc
 # Set up port-forwarding to `postgresql-service`
 kubectl port-forward service/postgresql-service 5433:5432 &
+
+# Test pods working
+curl ae48e661f61d64a7e89bdcbbc6845ce0-1882157535.us-east-1.elb.amazonaws.com:5153/api/reports/daily_usage
